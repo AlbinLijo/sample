@@ -1,0 +1,70 @@
+
+<div class="header">        
+<mat-toolbar class="color" >
+	<button mat-icon-button class="app-icon-button" (click)="sidenav.toggle()">
+		<mat-icon>menu</mat-icon>
+	</button>
+	Logo
+<section class="right-end" [mat-menu-trigger-for]="user">
+	
+	<button [mat-menu-trigger-for]="user" mat-icon-button class="app-icon-button">
+		<mat-icon>person</mat-icon>
+	</button> 
+	<span class="toolbar-text">amal</span>
+</section>
+<mat-menu #user="matMenu" class="opt-menu" x-position="before">
+	<button mat-menu-item [routerLink]="['']" (click)="logout()">
+	  <mat-icon>exit_to_app</mat-icon>
+	  Sign Out
+	</button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidnavebar-container">
+	<mat-sidenav mode="side" opened="true" #sidenav class="sidebar">
+		<mat-nav-list>
+		<mat-list-item>
+			<a  class="relative" mat-ripple href="javascript:;" >
+				<mat-icon>home</mat-icon>
+				<span class ="align-text">Dashboard</span>
+				<span fxFlex></span>
+			  </a>
+		  </mat-list-item>
+		  <mat-list-item>
+			<a  class="relative" mat-ripple href="javascript:;" >
+				<mat-icon>get_app</mat-icon>
+				<span  class ="align-text">My Priveleage</span>
+				<span fxFlex></span>
+			  </a>
+		  </mat-list-item>
+
+		  <mat-list-item>
+			<a  class="relative" mat-ripple href="javascript:;" >
+				<mat-icon>offline_bolt</mat-icon>
+				<span  class ="align-text">My Booking</span>
+				<span fxFlex></span>
+			  </a>
+		  </mat-list-item>
+
+		  <mat-list-item>
+			<a  class="relative" mat-ripple href="javascript:;" >
+				<mat-icon>notification_important</mat-icon>
+				<span  class ="align-text">Notifications</span>
+				<span fxFlex></span>
+			  </a>
+		  </mat-list-item>
+
+		  <mat-list-item>
+			<a  class="relative" mat-ripple href="javascript:;" >
+				<mat-icon>person</mat-icon>
+				<span  class ="align-text"> My Account</span>
+				<span fxFlex></span>
+			  </a>
+		  </mat-list-item>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<app-dashboard></app-dashboard>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+</div>

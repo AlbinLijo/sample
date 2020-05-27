@@ -1,0 +1,38 @@
+<div class="loginer">
+  <div class="container-login">
+    <div class="login-background" style="background-image: url('../../assets/images/login.jpg');"></div>
+
+    <div class="login-wrapper p-l-50 p-r-50 p-t-72 p-b-50 height-100">
+      <div class="login-form relative">
+        <section class="login-session">
+          <section fxLayoutAlign="center center">
+            <img src="assets/images/logo.png" class="leftSection" width="50%" />
+          </section>
+          <form #form="ngForm" (ngSubmit)="login()">
+            <div fxLayout="column" fxLayoutAlign="start stretch">
+              <mat-form-field class="width-100">
+                <input matInput placeholder="E-Mail" type="text" name="email" required [(ngModel)]="email" />
+              </mat-form-field>
+              <mat-form-field class="width-100" class="mb-1">
+                <input
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  required
+                  [(ngModel)]="password"
+                />
+              </mat-form-field>
+              <p class="mat-text-warn mb-0">Forgot password?</p>
+              <button class="mat-blue" mat-raised-button (click)="login()">LOG IN</button>
+              <p style="color: red; text-align: center;" *ngIf="isInvalidCredentials">Invalid Credentials</p>
+              <p class="register">
+                Don't Have An Account ? <a [routerLink]="['/register']" class="mat-text-primary name"> Register Here</a>
+              </p>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

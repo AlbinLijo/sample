@@ -1,0 +1,26 @@
+#condo_info-details-container {
+    .mat-card-content {
+  
+      .condo_infos-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'condo_info-details condo_infos-illustration';
+      }
+  
+      .condo_info-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-area: condo_info-details;
+        grid-gap: 12px;
+      }
+  
+      .condo_infos-illustration {
+        grid-area: condo_infos-illustration;
+  
+        img {
+          opacity: 0.25;
+        }
+      }
+    }
+  }
+  

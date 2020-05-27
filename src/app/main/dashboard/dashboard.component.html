@@ -1,0 +1,22 @@
+<app-charts></app-charts>
+<section *ngFor="let user of userUnits.data" style="margin-top: 20px;">
+  <div fxLayout="row" fxFlex.md="70" fxLayoutWrap>
+    <div fxFlex *ngFor="let unit of user.floors[0].units" class="card-item">
+      <mat-card style="height: 100px;">
+        <mat-card-content>
+          <section style="text-align: center">
+            <span class="value" >UNIT-</span>
+             <span class="value" >{{ unit?.unitdisplayname }}</span>
+          </section>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<mat-tab-group style="margin-top: 15px;">
+  <mat-tab label="Happenings"> <app-happenings></app-happenings> </mat-tab>
+  <mat-tab label="Broad Cast">
+    <app-broadcast></app-broadcast>
+  </mat-tab>
+</mat-tab-group>

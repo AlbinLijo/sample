@@ -1,0 +1,44 @@
+.app-icon-button {
+  background: transparent;
+  border: transparent;
+}
+
+.color {
+  background: white;
+}
+
+.sidnavebar-container {
+  flex: 1;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+    padding-top: 10px;
+}
+
+.align-text {
+    padding-left: 1em;
+}
+
+.right-end {
+    float: right;
+    position: fixed;
+    right: 20px;
+}
+
+.toolbar-text {
+    padding-top: 2px;
+}

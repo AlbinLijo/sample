@@ -1,0 +1,29 @@
+<section id="user-details-container">
+  <mat-card>
+    <mat-card-title>User Details</mat-card-title>
+    <mat-card-subtitle>Details for User</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <section >
+        <!-- user Details -->
+        <section  *ngFor="let user of userUnits.data">
+            <!-- Name -->
+            <section class="sub-title">Name : <span class="value">{{ user?.name }}</span></section>
+
+            <!-- Floor Number -->
+            <section class="sub-title">Floor Number : <span class="value">{{ user?.floors[0]?.floorno }}</span></section>
+
+            <section *ngFor="let unit of user.floors[0].units">
+            <!-- Unit Name -->
+            <section class="sub-title">Unit Name : <span class="value">{{unit?.unitdisplayname}}</span></section>
+
+            <!-- status -->
+            <section class="sub-title">Status : <span class="value">{{ unit?.status }}</span></section>
+
+          </section>
+          <hr>
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

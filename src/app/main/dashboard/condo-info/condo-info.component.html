@@ -1,0 +1,36 @@
+<section id="condo_info-details-container">
+    <mat-card>
+      <mat-card-title>Condo Info Details</mat-card-title>
+      <mat-card-subtitle>Details Condo Info</mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <section class="condo_infos-wrapper">
+          <!-- condo_info Details -->
+          <section class="condo_info-details" *ngFor="let options of condoInfo?.data">
+          <!-- condo_info ID -->
+          <section class="sub-title">Name</section>
+          <section>{{ options?.propertydisplayname }}</section>
+  
+          <!-- Property Name -->
+          <section class="sub-title">Property Name</section>
+          <section>{{ options?.propertyname}}</section>
+  
+          <!-- Property Code -->
+          <section class="sub-title">Property Code</section>
+          <section>{{ options?.propertycode}}</section>
+  
+          <!-- status -->
+          <section class="sub-title">Status</section>
+          <section>{{ options?.status}}</section>
+
+        </section>
+  
+          <!-- condo_info Illustration -->
+          <section class="condo_infos-illustration">
+            <img src="../../../../../assets/images/mat-card-1.png" alt="">
+          </section>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

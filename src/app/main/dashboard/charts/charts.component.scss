@@ -1,0 +1,22 @@
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 70%;
+  }
+
+  .second-column {
+      flex:30%
+  }
+
+  .image {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  .image-last {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
