@@ -46,7 +46,7 @@ export class SampleServiceService {
     return this.httpClient.get<any>(apiUrl, { headers: headers });
   }
 
-  getUserUnits(): Observable<any> {
+  getUserUnits(name: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers
       .set('X-TenantId', 'default')
@@ -54,7 +54,7 @@ export class SampleServiceService {
       .set('User', 'amal')
       .set('ReferenceId', 'MA-006')
       .set('AccessMode', 'view');
-    const apiUrl = `${this.routePrefix}/condoservices/api/v1/user/amal/units`;
+    const apiUrl = `${this.routePrefix}/condoservices/api/v1/user/${name}/units`;
     return this.httpClient.get<any>(apiUrl, { headers: headers });
   }
 }

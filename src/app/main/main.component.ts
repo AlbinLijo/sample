@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SampleServiceService } from 'app/services/sample-service.service';
@@ -10,7 +10,7 @@ import { SampleServiceService } from 'app/services/sample-service.service';
   styleUrls: ['./main.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
   public menuItems = [
     {
       state: 'main',
@@ -38,6 +38,7 @@ export class MainComponent {
       name: 'Dashboard',
     },
   ];
+  name: string;
 
   @ViewChild('sidenav') sidenav: MatSidenav;
   isExpanded = true;
@@ -45,10 +46,17 @@ export class MainComponent {
   isShowing = false;
   showSubSubMenu = false;
   user: string;
-  constructor(private readonly sampleService: SampleServiceService) {
+  constructor(private readonly sampleService: SampleServiceService, private readonly _activatedRoute: ActivatedRoute) {
     this.user = this.sampleService.userDetails;
-    console.log(this.user)
+    console.log(this.user);
   }
+
+  ngOnInit(): void {
+    this._activatedRoute.queryParams.subscribe((queryParams) => {
+      this.name = queryParams['name'];
+    });
+  }
+
   mouseenter(): void {
     if (!this.isExpanded) {
       this.isShowing = true;

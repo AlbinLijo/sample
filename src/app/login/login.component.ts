@@ -13,6 +13,7 @@ export class LoginComponent {
   email: string;
   password: string;
   isInvalidCredentials = false;
+  userDetails: any;
 
   constructor(private router: Router, private readonly sampleService: SampleServiceService) {}
 
@@ -20,9 +21,10 @@ export class LoginComponent {
     this.isInvalidCredentials = false;
     this.sampleService.login(this.email, this.password).subscribe((data) => {
       if (data.statuscode === 200) {
-        this.checkJWTtokens(data);
+        this.userDetails = this.parseJwt(data.data.authtoken);
+        console.log(this.userDetails);
         this.sampleService.isAuthenticated();
-        this.router.navigate(['/main']);
+        this.router.navigate(['/main'], { queryParams: { name: this.userDetails.sub } });
       } else {
         this.isInvalidCredentials = true;
       }
@@ -30,8 +32,22 @@ export class LoginComponent {
   }
 
   checkJWTtokens(user: any): void {
-      const userDetails =  jwt_decode(user.data.authtoken);
-      console.log(userDetails);
-      this.sampleService.setUserDetails(userDetails);
-    }
+    this.userDetails = jwt_decode(user.data.authtoken);
+    this.sampleService.setUserDetails(this.userDetails);
+  }
+
+  parseJwt(token): any {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map(function (c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join(''),
+    );
+
+    return JSON.parse(jsonPayload);
+  }
 }

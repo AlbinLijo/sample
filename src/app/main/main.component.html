@@ -10,7 +10,7 @@
 	<button [mat-menu-trigger-for]="user" mat-icon-button class="app-icon-button">
 		<mat-icon>person</mat-icon>
 	</button> 
-	<span class="toolbar-text">amal</span>
+	<span class="toolbar-text">{{name}}</span>
 </section>
 <mat-menu #user="matMenu" class="opt-menu" x-position="before">
 	<button mat-menu-item [routerLink]="['']" (click)="logout()">
